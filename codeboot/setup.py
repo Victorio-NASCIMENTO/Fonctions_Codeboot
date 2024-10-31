@@ -13,7 +13,7 @@ setup(
     description='Fonctions de Codeboot. Voir doc codeboot',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/ton_nom/mon_module',  # Lien vers le dépôt
+    url='https://github.com/Victorio-NASCIMENTO/Fonctions_Codeboot/tree/main',  # Lien vers le dépôt
     classifiers=[
         'Programming Language :: Python :: 3',
         'Operating System :: OS Independent',

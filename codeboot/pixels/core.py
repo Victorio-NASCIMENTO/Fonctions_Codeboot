@@ -16,7 +16,6 @@ def sleep(time: float):
         time (float): Durée en secondes.
     """
     pygame.time.delay(int(time * 1000))
-    check_quit()
 
 
 def beep(duration: float, frequency: int):
@@ -27,7 +26,6 @@ def beep(duration: float, frequency: int):
         frequency (int): Fréquence du bip en hertz.
     """
     Beep(frequency, int(duration * 1000))
-    check_quit()
 
 def draw_grid():
     """Dessine une grille sur l'écran pour aider à visualiser les cellules."""

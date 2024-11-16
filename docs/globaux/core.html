@@ -4,92 +4,279 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <meta name="generator" content="pdoc3 0.11.1">
-    <title>vcodeboot.globaux.core API documentation</title>
-    <meta name="description" content="">
+    <title>vcodeboot.globaux.core - Documentation de l'API</title>
+    <meta name="description" content="Module de fonctions globales pour vcodeboot">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
     <style>
-        :root { --highlight-color: #fe9; }
-        body { line-height: 1.5em; font-family: Arial, sans-serif; }
-        #content { padding: 20px; max-width: 100ch; margin: auto; }
-        h1, h2, h3, h4 { font-weight: 300; }
-        h1 { font-size: 2.5em; line-height: 1.1em; }
-        h2 { font-size: 1.75em; margin: 2em 0 0.5em; }
-        pre code { background: #f3f3f3; padding: 1em; display: block; }
-        code { background: #f3f3f3; padding: 2px 4px; }
-        a { color: #058; text-decoration: none; }
-        a:hover { color: #b62; }
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --bg-color: #f5f6fa;
+            --nav-bg: #2c3e50;
+            --code-bg: #f8f9fa;
+        }
+        
+        body {
+            line-height: 1.6em;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation principale */
+        .main-nav {
+            background: var(--nav-bg);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-content h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        /* Layout principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Contenu principal */
+        #content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Styles de base */
+        .title {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        /* Styles pour les fonctions */
+        .function-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .function-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .function-name {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 1rem;
+        }
+
+        code {
+            background: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: var(--accent-color);
+            font-size: 0.9em;
+            font-family: "DejaVu Sans Mono", monospace;
+        }
+
+        .desc {
+            margin-top: 1rem;
+        }
+
+        .desc h3 {
+            color: var(--primary-color);
+            font-size: 1.1em;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .desc dl {
+            margin-left: 1rem;
+        }
+
+        .desc dt {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .desc dd {
+            margin-left: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--nav-bg);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 1rem;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({languages: ['python']});
+            hljs.highlightAll();
+        });
+    </script>
 </head>
 <body>
-    <main>
+    <nav class="main-nav">
+        <div class="nav-content">
+            <h1>vcodeboot.globaux.core</h1>
+            <div class="nav-links">
+                <a href="../../index.html">Accueil</a>
+                <a href="../index.html">Globaux</a>
+                <a href="#header-functions">Fonctions</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
         <article id="content">
             <header>
                 <h1 class="title">Module <code>vcodeboot.globaux.core</code></h1>
             </header>
+
             <section>
-                <h2 id="header-functions">Functions</h2>
-                <dl>
+                <h2 class="section-title" id="header-functions">Fonctions</h2>
+                
+                <div class="function-card">
                     <dt id="vcodeboot.globaux.core.clear">
-                        <code class="name flex">
-                            <span>def <span class="ident">clear</span></span>(<span>grid_width=360, grid_height=240</span>)
+                        <code class="function-name">
+                            def <span class="ident">clear</span>(grid_width=360, grid_height=240)
                         </code>
                     </dt>
                     <dd>
                         <div class="desc">
-                            <p>Clear the turtle screen and configure initial settings.</p>
-                            <h3>Args</h3>
+                            <p>Efface l'écran turtle et configure les paramètres initiaux.</p>
+                            <h3>Arguments</h3>
                             <dl>
-                                <dt><strong><code>grid_width</code></strong> : <code>int</code>, optional</dt>
-                                <dd>Width of the grid in pixels. Default is 360.</dd>
-                                <dt><strong><code>grid_height</code></strong> : <code>int</code>, optional</dt>
-                                <dd>Height of the grid in pixels. Default is 240.</dd>
+                                <dt><strong><code>grid_width</code></strong> : <code>int</code>, optionnel</dt>
+                                <dd>Largeur de la grille en pixels. Par défaut 360.</dd>
+                                <dt><strong><code>grid_height</code></strong> : <code>int</code>, optionnel</dt>
+                                <dd>Hauteur de la grille en pixels. Par défaut 240.</dd>
                             </dl>
                         </div>
                     </dd>
-                    <dt id="vcodeboot.globaux.core.getrandbits">
-                        <code class="name flex">
-                            <span>def <span class="ident">getrandbits</span></span>(<span>k, /</span>)
-                        </code>
-                    </dt>
-                    <dd>
-                        <div class="desc">
-                            <p>Generate an integer with <code>k</code> random bits.</p>
-                        </div>
-                    </dd>
+                </div>
+
+                <div class="function-card">
                     <dt id="vcodeboot.globaux.core.safe_update">
-                        <code class="name flex">
-                            <span>def <span class="ident">safe_update</span></span>(<span>)</span>
+                        <code class="function-name">
+                            def <span class="ident">safe_update</span>()
                         </code>
                     </dt>
                     <dd>
                         <div class="desc">
-                            <p>Safely update the internal state of the application.</p>
+                            <p>Met à jour de manière sécurisée l'état interne de l'application.</p>
                         </div>
                     </dd>
+                </div>
+
+                <div class="function-card">
                     <dt id="vcodeboot.globaux.core.turtlemode">
-                        <code class="name flex">
-                            <span>def <span class="ident">turtlemode</span></span>(<span>the_speed=-1, grid_width=360, grid_height=240</span>)
+                        <code class="function-name">
+                            def <span class="ident">turtlemode</span>(the_speed=-1, grid_width=360, grid_height=240)
                         </code>
                     </dt>
                     <dd>
                         <div class="desc">
-                            <p>Configure the turtle environment with a centered grid and white margins.</p>
-                            <h3>Args</h3>
+                            <p>Configure l'environnement turtle avec une grille centrée et des marges blanches.</p>
+                            <h3>Arguments</h3>
                             <dl>
                                 <dt><strong><code>the_speed</code></strong> : <code>int</code></dt>
-                                <dd>Speed of the turtle (-1 for instant drawing).</dd>
-                                <dt><strong><code>grid_width</code></strong> : <code>int</code>, optional</dt>
-                                <dd>Width of the grid in pixels.</dd>
-                                <dt><strong><code>grid_height</code></strong> : <code>int</code>, optional</dt>
-                                <dd>Height of the grid in pixels.</dd>
+                                <dd>Vitesse de la tortue (-1 pour un dessin instantané).</dd>
+                                <dt><strong><code>grid_width</code></strong> : <code>int</code>, optionnel</dt>
+                                <dd>Largeur de la grille en pixels.</dd>
+                                <dt><strong><code>grid_height</code></strong> : <code>int</code>, optionnel</dt>
+                                <dd>Hauteur de la grille en pixels.</dd>
                             </dl>
                         </div>
                     </dd>
-                </dl>
+                </div>
             </section>
         </article>
-    </main>
+
+        <footer>
+            <p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+        </footer>
+    </div>
 </body>
 </html>

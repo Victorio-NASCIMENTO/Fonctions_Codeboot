@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.1">
+<title>vcodeboot.pixels.core API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>vcodeboot.pixels.core</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="vcodeboot.pixels.core.beep"><code class="name flex">
+<span>def <span class="ident">beep</span></span>(<span>duration: float, frequency: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Plays a beep sound with specified duration and frequency.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>duration</code></strong> :&ensp;<code>float</code></dt>
+<dd>Duration of the beep in seconds.</dd>
+<dt><strong><code>frequency</code></strong> :&ensp;<code>int</code></dt>
+<dd>Frequency of the beep in hertz.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.drawGrid"><code class="name flex">
+<span>def <span class="ident">drawGrid</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Draws a grid on the screen to help visualize cells.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.drawImage"><code class="name flex">
+<span>def <span class="ident">drawImage</span></span>(<span>x: int, y: int, temp: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Draws an image based on hexadecimal data formatted in #RGB.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>Starting X position.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Starting Y position.</dd>
+<dt><strong><code>image</code></strong> :&ensp;<code>str</code></dt>
+<dd>String containing image data in #RGB format.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.drawText"><code class="name flex">
+<span>def <span class="ident">drawText</span></span>(<span>x, y, text, color='#fff', background='#000', scale=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Draws text on the pixel grid with specified color and background.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>X position of the text.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Y position of the text.</dd>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text to display.</dd>
+<dt><strong><code>color</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text color in #RGB format.</dd>
+<dt><strong><code>background</code></strong> :&ensp;<code>str</code></dt>
+<dd>Background color in #RGB format.</dd>
+<dt><strong><code>scale</code></strong> :&ensp;<code>int</code></dt>
+<dd>Text scale factor.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.draw_grid"><code class="name flex">
+<span>def <span class="ident">draw_grid</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Draws a grid on the screen to help visualize cells.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.draw_image"><code class="name flex">
+<span>def <span class="ident">draw_image</span></span>(<span>x: int, y: int, temp: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Draws an image based on hexadecimal data formatted in #RGB.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>Starting X position.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Starting Y position.</dd>
+<dt><strong><code>image</code></strong> :&ensp;<code>str</code></dt>
+<dd>String containing image data in #RGB format.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.draw_text"><code class="name flex">
+<span>def <span class="ident">draw_text</span></span>(<span>x, y, text, color='#fff', background='#000', scale=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Draws text on the pixel grid with specified color and background.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>X position of the text.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Y position of the text.</dd>
+<dt><strong><code>text</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text to display.</dd>
+<dt><strong><code>color</code></strong> :&ensp;<code>str</code></dt>
+<dd>Text color in #RGB format.</dd>
+<dt><strong><code>background</code></strong> :&ensp;<code>str</code></dt>
+<dd>Background color in #RGB format.</dd>
+<dt><strong><code>scale</code></strong> :&ensp;<code>int</code></dt>
+<dd>Text scale factor.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.exportScreen"><code class="name flex">
+<span>def <span class="ident">exportScreen</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a text representation of the current pixel grid state.
+Each line of text contains grid colors in RGB444 format, separated by '
+'.</p>
+<pre><code>Returns:
+    str: Text representation of the screen content.
+</code></pre></div>
+</dd>
+<dt id="vcodeboot.pixels.core.export_screen"><code class="name flex">
+<span>def <span class="ident">export_screen</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a text representation of the current pixel grid state.
+Each line of text contains grid colors in RGB444 format, separated by '
+'.</p>
+<pre><code>Returns:
+    str: Text representation of the screen content.
+</code></pre></div>
+</dd>
+<dt id="vcodeboot.pixels.core.fillRectangle"><code class="name flex">
+<span>def <span class="ident">fillRectangle</span></span>(<span>x: int, y: int, largeur: int, hauteur: int, couleur: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fills a rectangle with a specified color in #RGB format.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>X position of the rectangle.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Y position of the rectangle.</dd>
+<dt><strong><code>largeur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Width of the rectangle.</dd>
+<dt><strong><code>hauteur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Height of the rectangle.</dd>
+<dt><strong><code>couleur</code></strong> :&ensp;<code>str</code></dt>
+<dd>Color in #RGB format.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.fill_rectangle"><code class="name flex">
+<span>def <span class="ident">fill_rectangle</span></span>(<span>x: int, y: int, largeur: int, hauteur: int, couleur: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fills a rectangle with a specified color in #RGB format.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>X position of the rectangle.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Y position of the rectangle.</dd>
+<dt><strong><code>largeur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Width of the rectangle.</dd>
+<dt><strong><code>hauteur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Height of the rectangle.</dd>
+<dt><strong><code>couleur</code></strong> :&ensp;<code>str</code></dt>
+<dd>Color in #RGB format.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouse"><code class="name flex">
+<span>def <span class="ident">getMouse</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the mouse position and state, along with modifier key states (Alt, Ctrl, Shift).</p>
+<p>This function captures mouse events and returns its coordinates, left button state,
+and information about Alt, Ctrl, and Shift keys. Depending on the turtle_mode parameter,
+it adapts the display method using either the pygame library (for classic event handling)
+or simulating the Turtle environment with Tkinter if pygame fails.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>struct</code></dt>
+<dd>An object containing mouse coordinates (x, y), button state (left click active or not),
+and Alt, Ctrl, and Shift key states.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouseAlt"><code class="name flex">
+<span>def <span class="ident">getMouseAlt</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the Alt key (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouseButton"><code class="name flex">
+<span>def <span class="ident">getMouseButton</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the mouse button (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouseCtrl"><code class="name flex">
+<span>def <span class="ident">getMouseCtrl</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the Ctrl key (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouseShift"><code class="name flex">
+<span>def <span class="ident">getMouseShift</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the Shift key (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouseX"><code class="name flex">
+<span>def <span class="ident">getMouseX</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current X coordinate of the mouse.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getMouseY"><code class="name flex">
+<span>def <span class="ident">getMouseY</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current Y coordinate of the mouse.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getScreenHeight"><code class="name flex">
+<span>def <span class="ident">getScreenHeight</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current height of the grid in cells.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.getScreenWidth"><code class="name flex">
+<span>def <span class="ident">getScreenWidth</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current width of the grid in cells.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse"><code class="name flex">
+<span>def <span class="ident">get_mouse</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the mouse position and state, along with modifier key states (Alt, Ctrl, Shift).</p>
+<p>This function captures mouse events and returns its coordinates, left button state,
+and information about Alt, Ctrl, and Shift keys. Depending on the turtle_mode parameter,
+it adapts the display method using either the pygame library (for classic event handling)
+or simulating the Turtle environment with Tkinter if pygame fails.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>struct</code></dt>
+<dd>An object containing mouse coordinates (x, y), button state (left click active or not),
+and Alt, Ctrl, and Shift key states.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse_alt"><code class="name flex">
+<span>def <span class="ident">get_mouse_alt</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the Alt key (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse_button"><code class="name flex">
+<span>def <span class="ident">get_mouse_button</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the mouse button (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse_ctrl"><code class="name flex">
+<span>def <span class="ident">get_mouse_ctrl</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the Ctrl key (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse_shift"><code class="name flex">
+<span>def <span class="ident">get_mouse_shift</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current state of the Shift key (True if pressed).</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse_x"><code class="name flex">
+<span>def <span class="ident">get_mouse_x</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current X coordinate of the mouse.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_mouse_y"><code class="name flex">
+<span>def <span class="ident">get_mouse_y</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current Y coordinate of the mouse.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_screen_height"><code class="name flex">
+<span>def <span class="ident">get_screen_height</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current height of the grid in cells.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.get_screen_width"><code class="name flex">
+<span>def <span class="ident">get_screen_width</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current width of the grid in cells.</p></div>
+</dd>
+<dt id="vcodeboot.pixels.core.safe_update"><code class="name flex">
+<span>def <span class="ident">safe_update</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="vcodeboot.pixels.core.setPixel"><code class="name flex">
+<span>def <span class="ident">setPixel</span></span>(<span>x: int, y: int, couleur: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the color of a pixel at a given position.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>X position of the pixel.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Y position of the pixel.</dd>
+<dt><strong><code>couleur</code></strong> :&ensp;<code>str</code></dt>
+<dd>Pixel color in #RGB format.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.setScreenMode"><code class="name flex">
+<span>def <span class="ident">setScreenMode</span></span>(<span>largeur: int, hauteur: int, zoom: float = 0, grille: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes the display window and draws grid if enabled.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>largeur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Window width.</dd>
+<dt><strong><code>hauteur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Window height.</dd>
+<dt><strong><code>zoom</code></strong> :&ensp;<code>int</code></dt>
+<dd>Zoom level for the grid.</dd>
+<dt><strong><code>grille</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Enable or disable grid.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.set_pixel"><code class="name flex">
+<span>def <span class="ident">set_pixel</span></span>(<span>x: int, y: int, couleur: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets the color of a pixel at a given position.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>x</code></strong> :&ensp;<code>int</code></dt>
+<dd>X position of the pixel.</dd>
+<dt><strong><code>y</code></strong> :&ensp;<code>int</code></dt>
+<dd>Y position of the pixel.</dd>
+<dt><strong><code>couleur</code></strong> :&ensp;<code>str</code></dt>
+<dd>Pixel color in #RGB format.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.set_screen_mode"><code class="name flex">
+<span>def <span class="ident">set_screen_mode</span></span>(<span>largeur: int, hauteur: int, zoom: float = 0, grille: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initializes the display window and draws grid if enabled.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>largeur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Window width.</dd>
+<dt><strong><code>hauteur</code></strong> :&ensp;<code>int</code></dt>
+<dd>Window height.</dd>
+<dt><strong><code>zoom</code></strong> :&ensp;<code>int</code></dt>
+<dd>Zoom level for the grid.</dd>
+<dt><strong><code>grille</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Enable or disable grid.</dd>
+</dl></div>
+</dd>
+<dt id="vcodeboot.pixels.core.sleep"><code class="name flex">
+<span>def <span class="ident">sleep</span></span>(<span>time: float)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pauses execution for a specified duration in seconds.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>time</code></strong> :&ensp;<code>float</code></dt>
+<dd>Duration in seconds.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="vcodeboot.pixels" href="index.html">vcodeboot.pixels</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="vcodeboot.pixels.core.beep" href="#vcodeboot.pixels.core.beep">beep</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.drawGrid" href="#vcodeboot.pixels.core.drawGrid">drawGrid</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.drawImage" href="#vcodeboot.pixels.core.drawImage">drawImage</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.drawText" href="#vcodeboot.pixels.core.drawText">drawText</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.draw_grid" href="#vcodeboot.pixels.core.draw_grid">draw_grid</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.draw_image" href="#vcodeboot.pixels.core.draw_image">draw_image</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.draw_text" href="#vcodeboot.pixels.core.draw_text">draw_text</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.exportScreen" href="#vcodeboot.pixels.core.exportScreen">exportScreen</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.export_screen" href="#vcodeboot.pixels.core.export_screen">export_screen</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.fillRectangle" href="#vcodeboot.pixels.core.fillRectangle">fillRectangle</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.fill_rectangle" href="#vcodeboot.pixels.core.fill_rectangle">fill_rectangle</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouse" href="#vcodeboot.pixels.core.getMouse">getMouse</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouseAlt" href="#vcodeboot.pixels.core.getMouseAlt">getMouseAlt</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouseButton" href="#vcodeboot.pixels.core.getMouseButton">getMouseButton</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouseCtrl" href="#vcodeboot.pixels.core.getMouseCtrl">getMouseCtrl</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouseShift" href="#vcodeboot.pixels.core.getMouseShift">getMouseShift</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouseX" href="#vcodeboot.pixels.core.getMouseX">getMouseX</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getMouseY" href="#vcodeboot.pixels.core.getMouseY">getMouseY</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getScreenHeight" href="#vcodeboot.pixels.core.getScreenHeight">getScreenHeight</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.getScreenWidth" href="#vcodeboot.pixels.core.getScreenWidth">getScreenWidth</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse" href="#vcodeboot.pixels.core.get_mouse">get_mouse</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse_alt" href="#vcodeboot.pixels.core.get_mouse_alt">get_mouse_alt</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse_button" href="#vcodeboot.pixels.core.get_mouse_button">get_mouse_button</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse_ctrl" href="#vcodeboot.pixels.core.get_mouse_ctrl">get_mouse_ctrl</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse_shift" href="#vcodeboot.pixels.core.get_mouse_shift">get_mouse_shift</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse_x" href="#vcodeboot.pixels.core.get_mouse_x">get_mouse_x</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_mouse_y" href="#vcodeboot.pixels.core.get_mouse_y">get_mouse_y</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_screen_height" href="#vcodeboot.pixels.core.get_screen_height">get_screen_height</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.get_screen_width" href="#vcodeboot.pixels.core.get_screen_width">get_screen_width</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.safe_update" href="#vcodeboot.pixels.core.safe_update">safe_update</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.setPixel" href="#vcodeboot.pixels.core.setPixel">setPixel</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.setScreenMode" href="#vcodeboot.pixels.core.setScreenMode">setScreenMode</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.set_pixel" href="#vcodeboot.pixels.core.set_pixel">set_pixel</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.set_screen_mode" href="#vcodeboot.pixels.core.set_screen_mode">set_screen_mode</a></code></li>
+<li><code><a title="vcodeboot.pixels.core.sleep" href="#vcodeboot.pixels.core.sleep">sleep</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+</footer>
+</body>
+</html>

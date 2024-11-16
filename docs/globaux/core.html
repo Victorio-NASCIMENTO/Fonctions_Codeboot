@@ -212,6 +212,7 @@
         <article id="content">
             <header>
                 <h1 class="title">Module <code>vcodeboot.globaux.core</code></h1>
+                <p class="subtitle">Fonctions fondamentales pour la configuration et la gestion de l'environnement graphique</p>
             </header>
 
             <section>
@@ -233,6 +234,8 @@
                                 <dt><strong><code>grid_height</code></strong> : <code>int</code>, optionnel</dt>
                                 <dd>Hauteur de la grille en pixels. Par défaut 240.</dd>
                             </dl>
+                            <h3>Retour</h3>
+                            <p>None</p>
                         </div>
                     </dd>
                 </div>
@@ -246,6 +249,9 @@
                     <dd>
                         <div class="desc">
                             <p>Met à jour de manière sécurisée l'état interne de l'application.</p>
+                            <p>Cette fonction garantit une mise à jour synchronisée de l'interface graphique.</p>
+                            <h3>Retour</h3>
+                            <p>None</p>
                         </div>
                     </dd>
                 </div>
@@ -262,12 +268,14 @@
                             <h3>Arguments</h3>
                             <dl>
                                 <dt><strong><code>the_speed</code></strong> : <code>int</code></dt>
-                                <dd>Vitesse de la tortue (-1 pour un dessin instantané).</dd>
+                                <dd>Vitesse de la tortue (-1 pour un dessin instantané). Par défaut -1.</dd>
                                 <dt><strong><code>grid_width</code></strong> : <code>int</code>, optionnel</dt>
-                                <dd>Largeur de la grille en pixels.</dd>
+                                <dd>Largeur de la grille en pixels. Par défaut 360.</dd>
                                 <dt><strong><code>grid_height</code></strong> : <code>int</code>, optionnel</dt>
-                                <dd>Hauteur de la grille en pixels.</dd>
+                                <dd>Hauteur de la grille en pixels. Par défaut 240.</dd>
                             </dl>
+                            <h3>Retour</h3>
+                            <p>None</p>
                         </div>
                     </dd>
                 </div>

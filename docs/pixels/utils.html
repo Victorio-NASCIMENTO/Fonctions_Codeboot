@@ -1,84 +1,278 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <title>vcodeboot.pixels.utils API documentation</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-  <style>
-    :root { --highlight-color: #fe9; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; }
-    #content { padding: 2em; }
-    #sidebar { width: 25%; padding: 1em; position: sticky; top: 0; background: #f8f8f8; }
-    main { display: flex; }
-    h1, h2, h3 { font-weight: 400; margin-top: 1em; }
-    pre, code { background: #f3f3f3; border: 1px solid #ddd; padding: 0.5em; }
-    footer { text-align: right; padding: 1em; font-size: 0.8em; background: #f0f0f0; }
-    a { text-decoration: none; color: #007acc; }
-    a:hover { text-decoration: underline; }
-    .toc ul, #index ul { list-style: none; padding: 0; }
-    .toc ul ul { margin-left: 1em; }
-    .desc p { margin: 0.5em 0; }
-    .source summary { font-weight: bold; cursor: pointer; }
-  </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      hljs.highlightAll();
-    });
-  </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <meta name="generator" content="pdoc3 0.11.1">
+    <title>vcodeboot.pixels.utils - Documentation de l'API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --text-color: #2c3e50;
+            --bg-color: #f5f6fa;
+            --nav-bg: #2c3e50;
+            --code-bg: #f8f9fa;
+        }
+        
+        body {
+            line-height: 1.6em;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav {
+            background: var(--nav-bg);
+            color: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-content h1 {
+            margin: 0;
+            font-size: 1.5em;
+            color: white;
+        }
+
+        .main-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        #sidebar {
+            width: 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        #content {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.3em;
+        }
+
+        .function-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .function-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .function-name {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: var(--accent-color);
+            font-size: 0.9em;
+        }
+
+        pre code {
+            display: block;
+            padding: 1em;
+            overflow-x: auto;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+
+        .toc {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: white;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc a {
+            color: white;
+            text-decoration: none;
+            padding: 0.3rem 0;
+            display: block;
+            transition: padding 0.2s;
+        }
+
+        .toc a:hover {
+            padding-left: 0.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--nav-bg);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            #sidebar {
+                width: 100%;
+                position: static;
+            }
+        }
+    </style>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            hljs.configure({languages: ['python']});
+            hljs.highlightAll();
+        });
+    </script>
 </head>
 <body>
-<main>
-  <article id="content">
-    <header>
-      <h1>Module <code>vcodeboot.pixels.utils</code></h1>
-    </header>
-    <section>
-      <h2>Functions</h2>
-      <dl>
-        <dt id="vcodeboot.pixels.utils.FIN">
-          <code>def FIN()</code>
-        </dt>
-        <dd>
-          <p>Cleanup function that runs at program termination.</p>
-          <p>Ensures a clean exit of the application by monitoring quit events.</p>
-        </dd>
-        <dt id="vcodeboot.pixels.utils.check_quit">
-          <code>def check_quit()</code>
-        </dt>
-        <dd>
-          <p>Checks for quit events and gracefully shuts down the application.</p>
-        </dd>
-      </dl>
-    </section>
-    <section>
-      <h2>Classes</h2>
-      <dl>
-        <dt id="vcodeboot.pixels.utils.struct">
-          <code>class struct(**fields)</code>
-        </dt>
-        <dd>
-          <p>A simple data container, similar to a C struct.</p>
-          <p><strong>Example:</strong></p>
-          <pre><code>data = struct(x=10, y=20)
+    <nav class="main-nav">
+        <div class="nav-content">
+            <h1>vcodeboot.pixels.utils</h1>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <nav id="sidebar">
+            <div class="toc">
+                <h3>Navigation rapide</h3>
+                <ul>
+                    <li><a href="#functions">Fonctions</a></li>
+                    <li><a href="#classes">Classes</a></li>
+                </ul>
+            </div>
+            <div class="toc">
+                <h3>Éléments</h3>
+                <ul>
+                    <li><a href="#vcodeboot.pixels.utils.FIN">FIN</a></li>
+                    <li><a href="#vcodeboot.pixels.utils.check_quit">check_quit</a></li>
+                    <li><a href="#vcodeboot.pixels.utils.struct">struct</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <article id="content">
+            <header>
+                <h1 class="title">Module <code>vcodeboot.pixels.utils</code></h1>
+            </header>
+
+            <section id="functions">
+                <h2>Fonctions</h2>
+                
+                <div class="function-card" id="vcodeboot.pixels.utils.FIN">
+                    <div class="function-name">
+                        <code>def FIN()</code>
+                    </div>
+                    <p>Cleanup function that runs at program termination.</p>
+                    <p>Ensures a clean exit of the application by monitoring quit events.</p>
+                </div>
+
+                <div class="function-card" id="vcodeboot.pixels.utils.check_quit">
+                    <div class="function-name">
+                        <code>def check_quit()</code>
+                    </div>
+                    <p>Checks for quit events and gracefully shuts down the application.</p>
+                </div>
+            </section>
+
+            <section id="classes">
+                <h2>Classes</h2>
+                
+                <div class="function-card" id="vcodeboot.pixels.utils.struct">
+                    <div class="function-name">
+                        <code>class struct(**fields)</code>
+                    </div>
+                    <p>A simple data container, similar to a C struct.</p>
+                    <p><strong>Example:</strong></p>
+                    <pre><code class="python">data = struct(x=10, y=20)
 print(data.x)  # Outputs: 10</code></pre>
-        </dd>
-      </dl>
-    </section>
-  </article>
-  <nav id="sidebar">
-    <h3>Contents</h3>
-    <ul>
-      <li><a href="#vcodeboot.pixels.utils.FIN">FIN</a></li>
-      <li><a href="#vcodeboot.pixels.utils.check_quit">check_quit</a></li>
-      <li><a href="#vcodeboot.pixels.utils.struct">struct</a></li>
-    </ul>
-  </nav>
-</main>
-<footer>
-  <p>Generated by <a href="https://pdoc3.github.io/pdoc">pdoc</a>.</p>
-</footer>
+                </div>
+            </section>
+        </article>
+    </div>
+
+    <footer>
+        <p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.1</a>.</p>
+    </footer>
 </body>
 </html>
